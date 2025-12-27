@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
-          child: ListView.builder(
+          child: GridView.builder(
             scrollDirection: Axis.vertical,
-            itemCount: newList.length,
+            itemCount: 40,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 8,
+            ),
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(newList[index], style: TextStyle(fontSize: 20)),
-              );
+              return Container(color: Colors.purple, margin: EdgeInsets.all(4));
             },
           ),
         ),
