@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
-  // This widget is the root of your application.
+  final List<dynamic> newList = ['Iktiar', 'Oishi', 'Prama'];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Container(color: Colors.blue, width: 200),
-            Container(color: Colors.blue[400], width: 200),
-            Container(color: Colors.blue[600], width: 200),
-            Container(color: Colors.pink[600], width: 200),
-          ],
+        body: SafeArea(
+          child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: newList.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(newList[index], style: TextStyle(fontSize: 20)),
+              );
+            },
+          ),
         ),
       ),
     );
