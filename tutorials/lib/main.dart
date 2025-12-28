@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials/pages/first_page.dart';
+import 'package:tutorials/pages/home_page.dart';
+import 'package:tutorials/pages/settings_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,20 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: newList.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(newList[index], style: TextStyle(fontSize: 20)),
-              );
-            },
-          ),
-        ),
-      ),
+      home: FirstPage(),
+      routes: {
+        'settingsPage': (context) => SettingsPage(),
+        'homepage': (context) => HomePage(),
+      },
     );
   }
 }
