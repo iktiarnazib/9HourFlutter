@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tutorials/pages/first_page.dart';
+import 'package:tutorials/pages/home_page.dart';
+import 'package:tutorials/pages/settings_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,20 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: GridView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: 40,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 8,
-            ),
-            itemBuilder: (context, index) {
-              return Container(color: Colors.purple, margin: EdgeInsets.all(4));
-            },
-          ),
-        ),
-      ),
+      home: FirstPage(),
+      routes: {
+        'settingsPage': (context) => SettingsPage(),
+        'homepage': (context) => HomePage(),
+      },
     );
   }
 }
