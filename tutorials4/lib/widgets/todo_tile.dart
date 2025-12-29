@@ -24,7 +24,11 @@ class TodoTile extends StatelessWidget {
           padding: const EdgeInsets.all(25.0),
           child: Row(
             children: [
-              Checkbox(value: taskCompleted, onChanged: onChanged),
+              Checkbox(
+                value: taskCompleted,
+                onChanged: onChanged,
+                activeColor: Colors.black,
+              ),
               Text(taskName),
             ],
           ),
